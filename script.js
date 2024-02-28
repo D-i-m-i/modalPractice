@@ -6,7 +6,6 @@ const btnCloseModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('.show-modal');
 
 const openModal = function () {
-  // console.log('You have clicked!');
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -22,3 +21,10 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+// THE EVENT OBJECT CREATED CAN BE ACCESSED BY HAVING IT AS A PARAMETER
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
